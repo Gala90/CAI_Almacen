@@ -10,8 +10,8 @@ using System.Threading.Tasks;
         {
             private string nombre;
             private string direccion;
-            private Inventario inv;
-            private int cantClientesAtendidos;
+            private List <Inventario> inv;
+            private int cantVentas;
             private List<String> empleados;
 
 
@@ -21,8 +21,9 @@ using System.Threading.Tasks;
             {
                 this.nombre = nombre;
                 this.direccion = direccion;
-                cantClientesAtendidos = 0;
+                cantVentas = 0;
                 empleados = new List<string>();
+                inv = new List<Inventario>();
             }
 
             public String Nombre
@@ -49,8 +50,73 @@ using System.Threading.Tasks;
                 Console.WriteLine("Nombre: " + Nombre + " Direccion: " + Direccion);
             }
 
+            public void venta()
+            {
+                 cantVentas = cantVentas + 1;
+                 Console.WriteLine("Se ha realizado una venta!");
+            }
+
+            public void mostrarCantVentas()
+            {
+              Console.WriteLine("Cantidad de ventas realizadas: " + cantVentas);
+            }
+
+            public void contratarEmpleado(string empleado)
+            {
+                empleados.Add(empleado);
+                Console.WriteLine("Se ha contratado a " + empleado);
+            }
+
+            public void agregarProd(string empleado)
+            {
+              
+            }
+
+
+        public void mostrarEmpleados()
+            {
+                if (empleados.Count == 0)
+            {
+                Console.WriteLine("No hay empleados");
+            }
+            else
+            {
+
+                foreach (string value in empleados)
+                {
+                    Console.WriteLine(value);
+                }
+            }
 
         }
+
+        public void agregarProd(Inventario producto)
+        {
+            inv.Add(producto);
+            Console.WriteLine("Se ha agregado el producto de forma correcta.");
+        }
+
+        /*
+        public void mostrarInventario()
+        {
+            if (inv.Count == 0)
+            {
+                Console.WriteLine("No hay inventario");
+            }
+            else
+            {
+
+                foreach (Inventario value in inv)
+                {
+                    Console.WriteLine(value);
+                }
+            }
+        }
+        */
+
+
+
+    }
     }
 
 
